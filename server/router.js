@@ -1,5 +1,5 @@
 const controllers = require('./controllers');
-const mid = require('./middleware');
+//const mid = require('./middleware');
 
 const router = (app) => {
   app.get('/login', controllers.Account.loginPage);
@@ -35,7 +35,7 @@ const router = (app) => {
   // // Notifications
   // app.get('/notifications', mid.requiresLogin, controllers.Notification.getNotifications);
 
-  //Default route
+  // Default route
   app.get('/', controllers.Account.loginPage);
 };
 
