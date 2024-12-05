@@ -2,13 +2,13 @@ const controllers = require('./controllers');
 const mid = require('./middleware');
 
 const router = (app) => {
-  app.get('/login', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
-  app.post('/login', mid.requiresSecure, mid.requiresLogout, controllers.Account.login);
+  app.get('/login', controllers.Account.loginPage);
+  app.post('/login', controllers.Account.login);
 
   // app.get('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signupPage);
-  app.post('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signup);
+  app.post('/signup', controllers.Account.signup);
 
-  app.get('/logout', mid.requiresLogin, controllers.Account.logout);
+  app.get('/logout', controllers.Account.logout);
 
   // // User Authentication
   // app.get('/login', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
@@ -35,8 +35,8 @@ const router = (app) => {
   // // Notifications
   // app.get('/notifications', mid.requiresLogin, controllers.Notification.getNotifications);
 
-  // // Default route
-  // app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
+  //Default route
+  app.get('/', controllers.Account.loginPage);
 };
 
 module.exports = router;
