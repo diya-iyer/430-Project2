@@ -19,7 +19,7 @@ const CreateProject = ({ onProjectCreated }) => {
       setDescription('');
     } else {
       alert('Failed to create project');
-    }
+    } 
   };
 
   return (
